@@ -22,10 +22,10 @@ https://www.postgresql.org/docs/current/ssl-tcp.html
 /etc/pgcontd/tls/ca.crt.d/*.{crt,pem}
 /etc/pgcontd/tls/ca.crl.d/*.{crl,pem}
 
-${PGDATA}/server.crt
-${PGDATA}/server.key
-${PGDATA}/ca.crt
-${PGDATA}/ca.crl
+(data_directory)/server.crt
+(data_directory)/server.key
+(data_directory)/ca.crt
+(data_directory)/ca.crl
 ```
 
 ## Scope creep

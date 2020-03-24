@@ -10,6 +10,7 @@ https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
 | `max_replication_slots` | S | `10`, GTE the existing slots
 | `max_wal_senders` | S | `10`, GT zero, GTE primary
 | `max_worker_processes` | S | `8`, GTE primary
+| `track_commit_timestamp` | CF | `off`, match primary
 | `wal_level` | S | `replica`, or `logical`
 | `wal_keep_segments` | CF | `0`
 | -- on primary --
@@ -27,15 +28,13 @@ https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
 ```
 
 - Ensure streaming replication is enabled.
-- Ensure WAL segments are available to replicas.
-- Ensure replicas can authenticate with primary.
+- Ensure [WAL](WAL.md) segments are available to replicas.
+- Ensure replicas can [authenticate](authentication.md) with primary.
 - Ensure replicas are authorized on primary.
+- Manage (add/remove) replication slots?
 
 ## Hot standby
 
 - Allow for replicas outside of HA.
 - Allow for delayed replicas outside of HA.
-
-## Scope creep
-
-- Tune WAL archive/segments per RTO?
+- Allow for `pg_receivewal`, both in and out of HA.

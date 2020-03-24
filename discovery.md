@@ -15,9 +15,9 @@ _pgcontd._tcp.{cluster}
 TODO: describe algorithm after lookup.
 
 
-In Kubernetes, [SRV records][k8s-srv] are created from Service definitions.
+In Kubernetes, [SRV records][k8s-srv] are created from service definitions.
 - "regular" resolves to one service domain name (which resolves to the cluster IP.)
-- "headless" resolves to many pod domain names. (what type of records are these?)
+- "headless" resolves to many pod domain names (which each resolve to a pod IP.)
 
 [k8s-srv]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#srv-records
 
